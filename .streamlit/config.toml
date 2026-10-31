@@ -1,0 +1,9 @@
+# Tema claro fijo: la app se ve igual aunque Windows o el navegador esten en
+# modo oscuro. Los colores coinciden con la paleta de datos.py, para que las
+# graficas de Plotly no queden sobre un fondo distinto al de la pagina.
+[theme]
+base = "light"
+backgroundColor = "#ffffff"          # fondo de la pagina
+secondaryBackgroundColor = "#f5f5f3" # barra lateral, tablas y expanders
+textColor = "#0b0b0b"                # TINTA
+primaryColor = "#2a78d6"             # SERIES[0], el azul de los acentos

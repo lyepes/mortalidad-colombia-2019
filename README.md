@@ -2,7 +2,7 @@
 
 **Integrantes:** LUISA FERNANDA YEPES ESPINOSA
 
-**Aplicación desplegada:** <!-- TODO: pegar la URL pública cuando se despliegue -->
+**Aplicación desplegada:** https://mortalidad-colombia-2019-ly.streamlit.app/
 **Repositorio:** https://github.com/lyepes/mortalidad-colombia-2019/
 
 ---
@@ -79,8 +79,7 @@ Para ejecutar la aplicación localmente:
 
 ```bash
 # 1. Clonar el repositorio
-git clone <URL-del-repositorio>
-cd Actividad4_LuisaYepes
+git clone https://github.com/lyepes/mortalidad-colombia-2019
 
 # 2. Crear y activar un entorno virtual
 python -m venv venv
@@ -101,25 +100,13 @@ Luego abre <http://localhost:8501> en el navegador (Streamlit suele abrirlo solo
 
 ## Despliegue
 
-### Streamlit Community Cloud (recomendado)
+### Streamlit Community Cloud
 
 1. Subir el proyecto a GitHub con la carpeta `src/`, `data/`, `.streamlit/` y `requirements.txt`.
 2. Entrar a [share.streamlit.io](https://share.streamlit.io) e iniciar sesión con la cuenta de GitHub.
 3. Pulsar **New app** y seleccionar el repositorio y la rama.
 4. En **Main file path**, indicar `src/principal.py`.
 5. Pulsar **Deploy**. La plataforma instala `requirements.txt` y publica la URL pública.
-
-No hace falta `Procfile`, `gunicorn` ni exponer un servidor WSGI: Streamlit trae su propio servidor.
-
-### Render (alternativa)
-
-Crear un **Web Service** con:
-
-- **Runtime:** Python 3
-- **Build Command:** `pip install -r requirements.txt`
-- **Start Command:** `streamlit run src/principal.py --server.port $PORT --server.address 0.0.0.0`
-
-El puerto debe tomarse de la variable `$PORT` que asigna la plataforma.
 
 ## Software
 
@@ -128,10 +115,6 @@ El puerto debe tomarse de la variable `$PORT` que asigna la plataforma.
 - **Plotly** — visualización interactiva
 - **Pandas** — análisis de datos
 - **Git y GitHub** — control de versiones y repositorio
-
-## Visualizaciones con explicaciones de los resultados
-
-> Las capturas deben guardarse en una carpeta `assets/` con los nombres indicados en cada bloque.
 
 ### 1. Mapa: muertes totales por departamento
 
@@ -215,17 +198,3 @@ Distribución agrupando los códigos de `GRUPO_EDAD1` según los rangos definido
 | Edad desconocida | 29 | Sin información | 23 | 0,01 |
 
 **Hallazgo:** la mortalidad se concentra al final de la vida — vejez y longevidad suman 171.514 muertes, el **70,2 %** del total. La curva tiene forma de J: arranca alta en el primer mes de vida (4.520 muertes), cae al mínimo en la primera infancia (1.518) y vuelve a subir sin interrupción hasta la vejez. Dos detalles notables: el primer mes de vida acumula más muertes que todo el rango de 15 a 19 años (4.520 contra 3.795), pese a comparar un mes contra cinco años; y entre adolescencia y juventud las muertes se multiplican por 3,1, un salto donde pesan las muertes violentas.
-
-> **Nota metodológica:** las etapas no tienen la misma amplitud ("Mortalidad neonatal" cubre menos de un mes y "Vejez" veinticinco años), por lo que la altura de las barras mide cuántas muertes ocurren en cada etapa, no el riesgo de morir dentro de ella.
-
-## Limitaciones
-
-- Todas las cifras son **conteos absolutos, no tasas**. Los archivos del DANE utilizados no incluyen población, de modo que no es posible calcular índices por cada 100.000 habitantes. Esto afecta especialmente a los rankings de ciudades: las más grandes aparecen arriba en parte por su tamaño.
-- El municipio registrado es el de **defunción**, que no siempre coincide con el lugar donde ocurrió el hecho (por ejemplo, un traslado a un hospital de otra ciudad).
-- Un conteo bajo puede reflejar tanto ausencia real de defunciones como **subregistro**.
-- Las variables `ESTADO_CIVIL` y `NIVEL_EDUCATIVO` no se utilizan porque sus descripciones no vienen en los anexos.
-- El registro `94663` (Mapiripana, Guainía) existe en el Anexo1 pero no en la Hoja3 de DIVIPOLA, por lo que queda fuera de las agregaciones por municipio; sí está contado en las agregaciones por departamento.
-
-## Fuente de los datos
-
-Departamento Administrativo Nacional de Estadística (DANE), [Estadísticas Vitales (EEVV) 2019](https://www.dane.gov.co/index.php/estadisticas-por-tema/salud/nacimientos-y-defunciones/defunciones-no-fetales).

@@ -1,0 +1,24 @@
+# Entorno virtual: 409 MB de binarios compilados para este Windows. Se
+# reconstruye en cualquier maquina con pip install -r requirements.txt
+venv/
+.venv/
+env/
+
+# Cache de Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Credenciales de Streamlit. config.toml SI se versiona (es el tema de la app);
+# secrets.toml NUNCA, porque guarda claves y contrasenas.
+.streamlit/secrets.toml
+
+# Sistema operativo y editores
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# Archivos temporales de Excel al abrir un libro
+~$*.xlsx
